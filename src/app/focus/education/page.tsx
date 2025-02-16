@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import { ArrowRightIcon } from '@heroicons/react/24/outline';
+import EducationalInstitutions from '@/app/components/EducationalInstitutions';
 
 export default function Education() {
   const educationalInstitutions = {
@@ -99,49 +100,8 @@ export default function Education() {
                 showcasing the city's commitment to fostering knowledge and skill development.
               </p>
             </div>
-            <div className="relative h-80">
-              {/* Distribution Chart */}
-              <div className="w-full h-full flex items-center justify-center">
-                <div className="relative w-64 h-64">
-                  <svg viewBox="0 0 100 100" className="transform -rotate-90">
-                    <circle
-                      r="15.9155"
-                      cx="50"
-                      cy="50"
-                      fill="none"
-                      stroke="hsl(130, 70%, 60%)"
-                      strokeWidth="31.831"
-                      strokeDasharray="60 100"
-                      className="transition-all duration-1000"
-                    />
-                    <circle
-                      r="15.9155"
-                      cx="50"
-                      cy="50"
-                      fill="none"
-                      stroke="hsl(220, 70%, 60%)"
-                      strokeWidth="31.831"
-                      strokeDasharray="25 100"
-                      strokeDashoffset="-60"
-                      className="transition-all duration-1000"
-                    />
-                    <circle
-                      r="15.9155"
-                      cx="50"
-                      cy="50"
-                      fill="none"
-                      stroke="hsl(310, 70%, 60%)"
-                      strokeWidth="31.831"
-                      strokeDasharray="15 100"
-                      strokeDashoffset="-85"
-                      className="transition-all duration-1000"
-                    />
-                  </svg>
-                </div>
-              </div>
             </div>
-          </div>
-        </div>
+        </div>    
       </section>
 
       {/* Map Section */}
@@ -175,7 +135,9 @@ export default function Education() {
         </div>
       </section>
 
-      {/* List of Institutions */}
+{/* Educational Institutions Section */}
+<EducationalInstitutions />
+      {/* List of Institutions 
       <section className="py-20 bg-sage-50">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold mb-12 text-center">List Of Education Institutions</h2>
@@ -214,7 +176,7 @@ export default function Education() {
             </div>
           </div>
         </div>
-      </section>
+      </section>*/}
     </main>
   );
 } 

@@ -1,5 +1,8 @@
+'use client';
+
 import Image from "next/image";
 import { ArrowRightIcon } from '@heroicons/react/24/outline';
+import EducationalInstitutions from './components/EducationalInstitutions';
 
 export default function Home() {
   return (
@@ -92,7 +95,7 @@ export default function Home() {
               </button>
             </div>
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4 animate-[fadeIn_0.8s_ease-out]">
-              {[1, 2, 3, 4, 5].map((num) => (
+              {[1, 2, 3, 4, 5, 6].map((num) => (
                 <div key={num} className="relative h-24 sm:h-32 rounded-xl overflow-hidden shadow-lg group">
                   <Image
                     src={`/images/education-${num}.jpg`}
@@ -141,6 +144,61 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Video Gallery Section */}
+      <section className="section-padding bg-gray-900">
+        <div className="container mx-auto px-4">
+          <div className="section-header">
+            <h2 className="text-3xl sm:text-4xl font-bold text-gradient-white mb-12">Video Gallery</h2>
+          </div>
+          <div className="relative">
+            {/* Video Carousel */}
+            <div className="overflow-hidden">
+              <div className="flex gap-6 overflow-x-auto snap-x pb-8 -mx-4 px-4 scroll-smooth">
+                {[
+                  {
+                    id: "W670QFLbV84",
+                    title: "വീടിന് അടുത്ത് തൊഴിലിടം; ആദ്യ 'വർക്ക് നിയർ ഹോം' ഐ.ടി.പാർക്ക് കൊട്ടാരക്കരയിൽ"
+                  },
+                  {
+                    id: "B-uJfKoZblM",
+                    title: "Kerala's First Campus Industrial Park & Zoho R&D Labs"
+                  },
+                  {
+                    id: "FPh2IQaCEyg",
+                    title: "കൊട്ടാരക്കരയിലെ വ്യത്യസ്തമായ ടൂറിസ്റ്റ് കേന്ദ്രം"
+                  }
+                ].map((video, index) => (
+                  <div key={index} className="min-w-[300px] sm:min-w-[400px] snap-start">
+                    <div className="bg-black rounded-xl overflow-hidden shadow-lg">
+                      <div className="relative pb-[56.25%]">
+                        <iframe
+                          src={`https://www.youtube.com/embed/${video.id}`}
+                          title={video.title}
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                          allowFullScreen
+                          className="absolute inset-0 w-full h-full"
+                        />
+                      </div>
+                    </div>
+                    <h3 className="text-white mt-4 text-lg font-medium line-clamp-2">{video.title}</h3>
+                  </div>
+                ))}
+              </div>
+            </div>
+            {/* Navigation Dots */}
+            <div className="flex justify-center gap-2 mt-6">
+              {[0, 1, 2].map((index) => (
+                <button
+                  key={index}
+                  className="w-3 h-3 rounded-full bg-white/30 hover:bg-white/50 transition-colors"
+                  aria-label={`Go to slide ${index + 1}`}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* News Reports */}
       <section className="section-padding bg-gradient-to-b from-sage-50 to-white">
         <div className="container mx-auto px-4">
@@ -149,17 +207,13 @@ export default function Home() {
           </div>
           <div className="modern-grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {[
-              'Senior School Week Annual 2024',
-              'Visit IT Park In Kottarakkara',
-              'Historic Moments',
-              'School Annual Day',
-              'Education Technology',
-              'Moving Next Home'
+              'Desire 2025',
+              'Visit IT Park In Kottarakkara'
             ].map((title, index) => (
               <div key={index} className="modern-card group">
                 <div className="relative h-48 sm:h-56 overflow-hidden">
                   <Image
-                    src={`/images/news-${index + 1}.jpg`}
+                    src={`/images/news-${index + 1}.jpeg`}
                     alt={title}
                     fill
                     className="image-hover object-cover"

@@ -34,7 +34,8 @@ export default function Livelihood() {
       investment: 300000,
       income: 12000,
       description: 'Operating under the Kizhakekara ADS in Kottarakkara, this venture focuses on orchid cultivation. With an initial investment of Rs. 300,000, the enterprise generates a monthly income of Rs. 12,000, showcasing the potential of sustainable livelihoods.',
-      image: '/images/livelihood/green-way.jpg'
+      image: '/images/livelihood/green-way.jpg',
+      source: 'Kudumbashree Mission'
     },
     {
       title: 'J Stores',
@@ -42,7 +43,8 @@ export default function Livelihood() {
       investment: 250000,
       income: 10000,
       description: 'Operating under the ETC ADS in Kottarakkara, this individual enterprise caters to the needs of the community by providing stationery supplies. With an initial investment of Rs. 250,000, the unit generates a consistent monthly income of Rs. 10,000.',
-      image: '/images/livelihood/j-stores.jpg'
+      image: '/images/livelihood/j-stores.jpg',
+      source: 'Kudumbashree Mission'
     }
   ];
 
@@ -71,6 +73,7 @@ export default function Livelihood() {
                   alt="Livelihood in Kottarakkara"
                   fill
                   className="object-cover"
+                  priority
                 />
               </div>
             </div>
@@ -82,26 +85,21 @@ export default function Livelihood() {
       <section className="py-20 bg-gray-900 text-white">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold mb-12">List Of Main Livelihood</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="relative h-[400px] rounded-xl overflow-hidden">
-              <Image
-                src="/images/livelihood/main-livelihood.jpg"
-                alt="Main Livelihoods"
-                fill
-                className="object-cover"
-              />
-            </div>
-            <div className="space-y-6">
-              {mainLivelihoods.map((item, index) => (
-                <div key={index} className="flex items-start gap-4">
-                  <div className="w-2 h-2 mt-2 rounded-full bg-sage-400 flex-shrink-0" />
-                  <div>
-                    <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
-                    <p className="text-gray-300">{item.description}</p>
-                  </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {mainLivelihoods.map((item, index) => (
+              <div key={index} className="group">
+                <div className="relative h-64 rounded-xl overflow-hidden mb-4">
+                  <Image
+                    src={item.image}
+                    alt={item.title}
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
                 </div>
-              ))}
-            </div>
+                <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
+                <p className="text-gray-300">{item.description}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -145,8 +143,13 @@ export default function Livelihood() {
                     src={initiative.image}
                     alt={initiative.title}
                     fill
-                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    className="object-cover object-center"
+                    priority
                   />
+                  <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white text-xs p-2 text-right">
+                    Source: {initiative.source}
+                  </div>
                 </div>
               </div>
             ))}

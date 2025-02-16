@@ -34,7 +34,7 @@ export default function Agriculture() {
               <div className="grid grid-cols-2 gap-4">
                 <div className="relative h-48 rounded-2xl overflow-hidden">
                   <Image
-                    src="/images/agriculture/agri-1.jpg"
+                    src="/images/agriculture/agri-1.jpeg"
                     alt="Agriculture in Kottarakkara"
                     fill
                     className="object-cover"
@@ -50,7 +50,7 @@ export default function Agriculture() {
                 </div>
                 <div className="relative h-48 rounded-2xl overflow-hidden">
                   <Image
-                    src="/images/agriculture/agri-3.jpg"
+                    src="/images/agriculture/agri-3.jpeg"
                     alt="Crops in Kottarakkara"
                     fill
                     className="object-cover"
@@ -73,54 +73,27 @@ export default function Agriculture() {
       {/* Main Crops Section */}
       <section className="py-20 bg-gray-900 text-white">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-12">Main Crops</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-            <div className="space-y-6">
-              {mainCrops.map((crop, index) => (
-                <div key={index} className="flex items-start gap-4">
+          <h2 className="text-3xl font-bold mb-12 text-center">Main Crops</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {mainCrops.map((crop, index) => (
+              <div key={index} className="bg-gray-800 rounded-xl p-6 hover:bg-gray-700 transition-colors">
+                <div className="flex items-start gap-4 mb-4">
                   <div className="w-2 h-2 mt-2 rounded-full bg-sage-400" />
-                  <div>
-                    <h3 className="text-xl font-semibold mb-2">{crop.name}</h3>
-                    <p className="text-gray-300">{crop.description}</p>
-                  </div>
+                  <h3 className="text-xl font-semibold">{crop.name}</h3>
                 </div>
-              ))}
-            </div>
-            <div className="relative h-80">
-              {/* Donut Chart */}
-              <div className="w-full h-full flex items-center justify-center">
-                <div className="relative w-64 h-64">
-                  <svg viewBox="0 0 100 100" className="transform -rotate-90">
-                    {mainCrops.map((crop, index) => {
-                      const offset = mainCrops
-                        .slice(0, index)
-                        .reduce((acc, curr) => acc + curr.percentage, 0);
-                      return (
-                        <circle
-                          key={index}
-                          r="15.9155"
-                          cx="50"
-                          cy="50"
-                          fill="none"
-                          stroke={`hsl(${index * 90}, 70%, 60%)`}
-                          strokeWidth="31.831"
-                          strokeDasharray={`${crop.percentage} 100`}
-                          strokeDashoffset={-offset}
-                          className="transition-all duration-1000"
-                        />
-                      );
-                    })}
-                  </svg>
+                <p className="text-gray-300 text-sm leading-relaxed">{crop.description}</p>
+                <div className="mt-4 text-sage-400 font-semibold">
+                  {crop.percentage}% of total cultivation
                 </div>
               </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* Map Section */}
       <section className="py-12 sm:py-20 bg-white flex items-center justify-center">
-        <div className="container mx-auto px-4 sm:px-6 flex items-center justify-center">
+        <div className="container mx-auto px-4 sm:px-6">
           <div className="max-w-6xl w-full">
             <h2 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 text-center">Agricultural Locations</h2>
             <p className="text-gray-700 text-base sm:text-lg leading-relaxed mb-6 sm:mb-10 text-center max-w-3xl mx-auto px-4">
@@ -129,7 +102,7 @@ export default function Agriculture() {
               traditional farming practices.
             </p>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-12 items-start">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-12 items-center">
               <div className="relative h-[300px] sm:h-[400px] rounded-xl overflow-hidden shadow-lg w-full">
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31559.083074100985!2d76.76894611354053!3d9.000423576679012!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b05fd3dd93e0ebf%3A0x5e10c8c4ad0c4a4f!2sKottarakkara%2C%20Kerala!5e0!3m2!1sen!2sin!4v1708068144317!5m2!1sen!2sin"
@@ -142,8 +115,8 @@ export default function Agriculture() {
                   className="rounded-xl"
                 ></iframe>
               </div>
-              <div className="bg-white p-4 sm:p-6 rounded-xl shadow-lg">
-                <div className="space-y-3 sm:space-y-4">
+              <div className="bg-white p-4 sm:p-6 rounded-xl shadow-lg flex items-center">
+                <div className="space-y-3 sm:space-y-4 w-full">
                   <div className="flex items-start gap-2 sm:gap-3">
                     <div className="w-2 h-2 mt-2 rounded-full bg-sage-600 flex-shrink-0" />
                     <p className="text-gray-600 text-sm sm:text-base">Rubber plantations in northern regions</p>
