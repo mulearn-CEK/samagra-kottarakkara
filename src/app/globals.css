@@ -1,0 +1,177 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: rgb(var(--background-rgb));
+  font-family: Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Modern Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scaleIn {
+  from { transform: scale(0.95); }
+  to { transform: scale(1); }
+}
+
+@keyframes slideIn {
+  from { transform: translateX(-20px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+/* Dropdown Animation */
+@keyframes dropdownEnter {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Mobile-first responsive base styles */
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+  
+  body {
+    @apply overflow-x-hidden;
+  }
+
+  h1 {
+    @apply text-3xl sm:text-4xl md:text-5xl font-bold mb-4;
+  }
+  h2 {
+    @apply text-2xl sm:text-3xl md:text-4xl font-semibold mb-3;
+  }
+  h3 {
+    @apply text-xl sm:text-2xl font-semibold mb-2;
+  }
+  p {
+    @apply text-base sm:text-lg mb-4;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply px-4 sm:px-6 py-2 sm:py-3 rounded-lg transition-all duration-300 transform hover:scale-105 
+           focus:outline-none focus:ring-2 focus:ring-offset-2 
+           inline-flex items-center justify-center font-medium
+           text-sm sm:text-base;
+  }
+  .btn-primary {
+    @apply bg-sage-600 text-white hover:bg-sage-700 focus:ring-sage-500
+           active:bg-sage-800 disabled:bg-sage-300 disabled:cursor-not-allowed;
+  }
+  .btn-secondary {
+    @apply bg-gray-100 text-gray-800 hover:bg-gray-200 focus:ring-gray-400
+           active:bg-gray-300 disabled:bg-gray-50 disabled:cursor-not-allowed;
+  }
+  .container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  /* Modern Card Styles */
+  .modern-card {
+    @apply bg-white rounded-xl shadow-lg overflow-hidden 
+           transition-all duration-300 hover:shadow-xl hover:-translate-y-1
+           border border-gray-100;
+  }
+  
+  /* Modern Section Styles */
+  .section-padding {
+    @apply py-16 sm:py-20 md:py-24;
+  }
+  
+  /* Modern Text Gradients */
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-sage-600 to-sage-800;
+  }
+
+  .text-gradient-white {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-300;
+  }
+  
+  /* Modern Image Hover Effects */
+  .image-hover {
+    @apply transition-all duration-500 hover:scale-105 hover:brightness-110;
+  }
+  
+  /* Modern Navigation Links */
+  .nav-link {
+    @apply relative py-2 transition-colors duration-300 hover:text-sage-600
+           text-base sm:text-lg;
+  }
+  .nav-link::after {
+    @apply content-[''] absolute bottom-0 left-0 w-0 h-0.5 bg-sage-600 
+           transition-all duration-300;
+  }
+  .nav-link:hover::after {
+    @apply w-full;
+  }
+
+  /* Dropdown Styles */
+  .dropdown-menu {
+    @apply absolute left-0 top-full w-56 bg-white rounded-lg shadow-lg py-2
+           transition-all duration-200 transform origin-top
+           border border-gray-100;
+  }
+
+  .dropdown-item {
+    @apply block w-full px-4 py-2 text-sm text-gray-700 hover:bg-sage-50
+           hover:text-sage-600 transition-colors cursor-pointer
+           whitespace-nowrap;
+  }
+
+  .dropdown-enter {
+    animation: dropdownEnter 0.2s ease-out;
+  }
+  
+  /* Modern Grid Layout */
+  .modern-grid {
+    @apply grid gap-6 sm:gap-8 animate-[fadeIn_0.6s_ease-out];
+  }
+  
+  /* Modern Section Headers */
+  .section-header {
+    @apply relative mb-8 sm:mb-12 md:mb-16 animate-[slideIn_0.6s_ease-out];
+  }
+  .section-header::after {
+    @apply content-[''] absolute -bottom-4 left-0 w-16 sm:w-24 h-1 bg-sage-600;
+  }
+
+  /* Responsive Container Padding */
+  .container-padding {
+    @apply px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Mobile Menu Animation */
+  .mobile-menu-enter {
+    @apply transition-all duration-300 transform translate-x-full;
+  }
+  .mobile-menu-enter-active {
+    @apply transform translate-x-0;
+  }
+  .mobile-menu-exit {
+    @apply transition-all duration-300 transform translate-x-0;
+  }
+  .mobile-menu-exit-active {
+    @apply transform translate-x-full;
+  }
+}
