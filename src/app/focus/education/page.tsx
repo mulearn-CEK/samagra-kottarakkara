@@ -23,7 +23,7 @@ export default function Education() {
             <div className="flex-1">
               <h1 className="text-5xl font-bold mb-6">{t('education')}</h1>
               <p className="text-gray-700 text-lg leading-relaxed mb-8">
-                {t('educationDesc')}
+                {t('educationPageDesc')}
               </p>
               <button className="btn btn-primary group">
                 {t('exploreInstitutions')}

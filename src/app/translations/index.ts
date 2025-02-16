@@ -219,7 +219,7 @@ export const translations: Translation = {
   },
 
   // Education Page
-  educationDesc: {
+  educationPageDesc: {
     en: 'Discover educational resources and opportunities in Kottarakkara. Our institutions are committed to nurturing the next generation of leaders.',
     ml: 'കൊട്ടാരക്കരയിലെ വിദ്യാഭ്യാസ വിഭവങ്ങളും അവസരങ്ങളും കണ്ടെത്തുക. ഭാവി തലമുറയിലെ നേതാക്കളെ വളർത്തിയെടുക്കാൻ ഞങ്ങളുടെ സ്ഥാപനങ്ങൾ പ്രതിജ്ഞാബദ്ധമാണ്.'
   },
