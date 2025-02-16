@@ -3,27 +3,15 @@
 import Image from 'next/image';
 import { ArrowRightIcon } from '@heroicons/react/24/outline';
 import EducationalInstitutions from '@/app/components/EducationalInstitutions';
+import { useTranslation } from '../../hooks/useTranslation';
 
 export default function Education() {
+  const { t } = useTranslation();
+
   const educationalInstitutions = {
-    schools: [
-      'St. Gregorios Higher Secondary School: A well-established school known for its academic excellence and holistic development of students.',
-      'Mar Gregorios Memorial Residential Public School: A residential school offering a comprehensive curriculum and a nurturing environment.',
-      'Govt Higher Secondary School & VHSE: A government-run school providing quality education with diverse backgrounds.',
-      'Town UP School, Kottarakkara: A primary school catering to the educational needs of young children in the town.',
-      'MTHS, Mathilkom Girls High School: A girls\' school with a focus on academic achievement and character building.',
-      'Government LP School Puliyarakonam: A government primary school serving the local community.'
-    ],
-    colleges: [
-      'College of Applied Science',
-      'Government Polytechnic College',
-      'Industrial Training Institute'
-    ],
-    others: [
-      'Technical Training Centers',
-      'Vocational Training Institutes',
-      'Skill Development Centers'
-    ]
+    schools: t('schoolsList').split('|'),
+    colleges: t('collegesList').split('|'),
+    others: t('othersList').split('|')
   };
 
   return (
@@ -33,15 +21,12 @@ export default function Education() {
         <div className="container mx-auto px-4">
           <div className="flex flex-col lg:flex-row gap-12 items-center">
             <div className="flex-1">
-              <h1 className="text-5xl font-bold mb-6">Education</h1>
+              <h1 className="text-5xl font-bold mb-6">{t('education')}</h1>
               <p className="text-gray-700 text-lg leading-relaxed mb-8">
-                Kottarakkara stands as a beacon of educational excellence, with renowned
-                schools and colleges nurturing talent and inspiring ambition. Rooted in cultural values
-                and innovation, the town offers a transformative learning environment,
-                shaping bright futures and empowering dreams.
+                {t('educationDesc')}
               </p>
               <button className="btn btn-primary group">
-                Explore Institutions
+                {t('exploreInstitutions')}
                 <ArrowRightIcon className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
               </button>
             </div>
@@ -50,7 +35,7 @@ export default function Education() {
                 <div className="relative h-48 rounded-2xl overflow-hidden">
                   <Image
                     src="/images/education/edu-1.jpg"
-                    alt="Education in Kottarakkara"
+                    alt={t('education')}
                     fill
                     className="object-cover"
                   />
@@ -58,7 +43,7 @@ export default function Education() {
                 <div className="relative h-48 rounded-2xl overflow-hidden mt-8">
                   <Image
                     src="/images/education/edu-2.jpg"
-                    alt="Schools in Kottarakkara"
+                    alt={t('schools')}
                     fill
                     className="object-cover"
                   />
@@ -66,7 +51,7 @@ export default function Education() {
                 <div className="relative h-48 rounded-2xl overflow-hidden">
                   <Image
                     src="/images/education/edu-3.jpg"
-                    alt="College Life"
+                    alt={t('colleges')}
                     fill
                     className="object-cover"
                   />
@@ -74,7 +59,7 @@ export default function Education() {
                 <div className="relative h-48 rounded-2xl overflow-hidden mt-8">
                   <Image
                     src="/images/education/edu-4.jpg"
-                    alt="Learning Environment"
+                    alt={t('educationImage')}
                     fill
                     className="object-cover"
                   />
@@ -88,20 +73,15 @@ export default function Education() {
       {/* Insights Section */}
       <section className="py-20 bg-gray-900 text-white">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-12">Insights into Education</h2>
+          <h2 className="text-3xl font-bold mb-12">{t('insightsIntoEducation')}</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
             <div className="space-y-6">
               <p className="text-gray-300 leading-relaxed">
-                Kottarakkara boasts a diverse array of educational institutions that cater to various
-                academic and vocational needs. From state-run schools and private CBSE institutions
-                to colleges offering undergraduate and postgraduate programs, the city serves as a
-                regional hub for learning. This section presents a visual representation of the
-                distribution of schools, colleges, and technical institutions in Kottarakkara,
-                showcasing the city's commitment to fostering knowledge and skill development.
+                {t('educationalInsightsDesc')}
               </p>
             </div>
-            </div>
-        </div>    
+          </div>
+        </div>
       </section>
 
       {/* Map Section */}
@@ -121,62 +101,17 @@ export default function Education() {
               ></iframe>
             </div>
             <div>
-              <h2 className="text-3xl font-bold mb-6">Educational Institutions Map</h2>
+              <h2 className="text-3xl font-bold mb-6">{t('educationalInstitutionsMap')}</h2>
               <p className="text-gray-700 text-lg leading-relaxed">
-                This map provides a comprehensive overview of the educational institutions in
-                the area. It highlights schools, colleges, and other learning centers, making it
-                easier for students, parents, and visitors to locate and explore these institutions.
-                Whether you're looking for primary schools, higher education facilities, or
-                specialized training centers, this map serves as a convenient guide to
-                understanding the region's educational landscape.
+                {t('mapDescription')}
               </p>
             </div>
           </div>
         </div>
       </section>
 
-{/* Educational Institutions Section */}
-<EducationalInstitutions />
-      {/* List of Institutions 
-      <section className="py-20 bg-sage-50">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-12 text-center">List Of Education Institutions</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-            <div className="space-y-8">
-              <div>
-                <h3 className="text-xl font-semibold mb-4 text-sage-700">Schools</h3>
-                <ul className="space-y-4">
-                  {educationalInstitutions.schools.map((school, index) => (
-                    <li key={index} className="flex items-start gap-3">
-                      <div className="w-2 h-2 mt-2 rounded-full bg-sage-600 flex-shrink-0" />
-                      <p className="text-gray-700">{school}</p>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div>
-                <h3 className="text-xl font-semibold mb-4 text-sage-700">Colleges</h3>
-                <ul className="space-y-4">
-                  {educationalInstitutions.colleges.map((college, index) => (
-                    <li key={index} className="flex items-start gap-3">
-                      <div className="w-2 h-2 mt-2 rounded-full bg-sage-600 flex-shrink-0" />
-                      <p className="text-gray-700">{college}</p>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-            <div className="relative h-[400px] rounded-xl overflow-hidden">
-              <Image
-                src="/images/education/campus.jpg"
-                alt="Educational Campus"
-                fill
-                className="object-cover"
-              />
-            </div>
-          </div>
-        </div>
-      </section>*/}
+      {/* Educational Institutions Section */}
+      <EducationalInstitutions />
     </main>
   );
 } 

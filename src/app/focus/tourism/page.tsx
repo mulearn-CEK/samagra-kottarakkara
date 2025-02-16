@@ -2,64 +2,48 @@
 
 import Image from 'next/image';
 import { ArrowRightIcon } from '@heroicons/react/24/outline';
+import { useTranslation } from '../../hooks/useTranslation';
 
 export default function Tourism() {
+  const { t } = useTranslation();
+
   const mainAttractions = [
     {
-      title: 'Kottarakkara Sree Mahaganapathy Temple',
-      description: 'A historic temple known for its architectural beauty and spiritual significance.',
-      image: '/images/tourism/temple.jpg'
+      title: t('templeTitle'),
+      description: t('templeDesc'),
+      image: '/images/tourism/temple1.jpg'
     },
     {
-      title: 'Scenic Lakes and Sunsets',
-      description: 'Beautiful water bodies offering stunning sunset views and boating experiences.',
+      title: t('lakesTitle'),
+      description: t('lakesDesc'),
       image: '/images/tourism/lake.jpg'
     },
     {
-      title: 'Historic Bridges',
-      description: 'Colonial-era bridges showcasing architectural heritage.',
-      image: '/images/tourism/bridge.jpg'
+      title: t('museumsTitle'),
+      description: t('museumsDesc'),
+      image: '/images/tourism/museum.jpg'
     },
     {
-      title: 'Local Markets',
-      description: 'Vibrant traditional markets offering local products and cultural experiences.',
+      title: t('marketsTitle'),
+      description: t('marketsDesc'),
       image: '/images/tourism/market.jpg'
-    }
-  ];
-
-  const galleryImages = [
-    {
-      src: '/images/tourism/gallery-1.jpg',
-      alt: 'Mountain Landscape'
-    },
-    {
-      src: '/images/tourism/gallery-2.jpg',
-      alt: 'Temple Architecture'
-    },
-    {
-      src: '/images/tourism/gallery-3.jpg',
-      alt: 'Cultural Festival'
-    },
-    {
-      src: '/images/tourism/gallery-4.jpg',
-      alt: 'Natural Beauty'
     }
   ];
 
   const recommendations = [
     {
-      title: 'Hotels & Resorts',
-      description: 'Comfortable accommodations with modern amenities and traditional hospitality.',
+      title: t('hotelsTitle'),
+      description: t('hotelsDesc'),
       image: '/images/tourism/hotel.jpg'
     },
     {
-      title: 'Local Cuisine',
-      description: 'Authentic Kerala restaurants serving traditional delicacies.',
+      title: t('cuisineTitle'),
+      description: t('cuisineDesc'),
       image: '/images/tourism/cuisine.jpg'
     },
     {
-      title: 'Cultural Centers',
-      description: 'Venues showcasing local art forms and cultural performances.',
+      title: t('culturalTitle'),
+      description: t('culturalDesc'),
       image: '/images/tourism/culture.jpg'
     }
   ];
@@ -71,23 +55,20 @@ export default function Tourism() {
         <div className="container mx-auto px-4">
           <div className="flex flex-col lg:flex-row gap-12 items-center">
             <div className="flex-1">
-              <h1 className="text-5xl font-bold mb-6">Tourism</h1>
+              <h1 className="text-5xl font-bold mb-6">{t('tourism')}</h1>
               <p className="text-gray-700 text-lg leading-relaxed mb-8">
-                Kottarakkara, a serene town in Kerala, is a blend of spiritual heritage, natural
-                beauty, and cultural richness. Famous for the Kottarakkara Sree Mahaganapathy
-                Temple and as the birthplace of Kathakali, it offers visitors a chance to
-                explore lush landscapes, vibrant traditions, and timeless charm.
+                {t('tourismDesc')}
               </p>
               <button className="btn btn-primary group">
-              Explore More
-              <ArrowRightIcon className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-            </button>
+                {t('exploreMore')}
+                <ArrowRightIcon className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+              </button>
             </div>
             <div className="flex-1">
               <div className="relative h-[600px] w-full rounded-2xl overflow-hidden">
                 <Image
                   src="/images/tourism/hero.jpg"
-                  alt="Tourism in Kottarakkara"
+                  alt={t('tourism')}
                   fill
                   className="object-cover"
                 />
@@ -98,44 +79,24 @@ export default function Tourism() {
       </section>
 
       {/* Main Attractions */}
-      <section className="py-20 bg-gray-900">
+      <section className="py-20 bg-gray-900 text-white">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-12 text-white">Main Attractions</h2>
+          <h2 className="text-3xl font-bold mb-12 text-center">{t('mainAttractions')}</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {mainAttractions.map((attraction, index) => (
-              <div key={index} className="group">
-                <div className="relative h-64 rounded-xl overflow-hidden mb-4">
+              <div key={index} className="bg-gray-800 rounded-xl overflow-hidden hover:bg-gray-700 transition-colors">
+                <div className="relative h-48">
                   <Image
                     src={attraction.image}
                     alt={attraction.title}
                     fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-110"
+                    className="object-cover"
                   />
                 </div>
-                <h3 className="text-xl font-semibold mb-2 text-white">{attraction.title}</h3>
-                <p className="text-gray-400">{attraction.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Gallery Section */}
-      <section className="py-20 bg-[#E5C1B3]">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-12 text-center">GALLERY</h2>
-          <div className="flex gap-6 overflow-x-auto pb-8 snap-x">
-            {galleryImages.map((image, index) => (
-              <div 
-                key={index}
-                className="relative min-w-[300px] h-[200px] rounded-xl overflow-hidden snap-center"
-              >
-                <Image
-                  src={image.src}
-                  alt={image.alt}
-                  fill
-                  className="object-cover hover:scale-105 transition-transform duration-500"
-                />
+                <div className="p-6">
+                  <h3 className="text-xl font-semibold mb-3">{attraction.title}</h3>
+                  <p className="text-gray-300 text-sm leading-relaxed">{attraction.description}</p>
+                </div>
               </div>
             ))}
           </div>
@@ -159,43 +120,33 @@ export default function Tourism() {
               ></iframe>
             </div>
             <div>
-              <h2 className="text-3xl font-bold mb-6">Tourist Map</h2>
+              <h2 className="text-3xl font-bold mb-6">{t('touristMap')}</h2>
               <p className="text-gray-700 text-lg leading-relaxed">
-                This map offers a detailed guide to the region's top tourist attractions and
-                recreational spots. From historical landmarks and cultural sites to natural
-                wonders and adventure parks, it showcases the diverse experiences available for
-                visitors. Whether you're planning a leisurely day exploring scenic beauty,
-                engaging in outdoor activities, or immersing yourself in the local heritage,
-                this map serves as your perfect companion to discover and enjoy the best
-                the area has to offer.
+                {t('touristMapDesc')}
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Recommendations Section */}
-      <section className="py-20 bg-sage-50">
+      {/* Recommendations */}
+      <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-12 text-center">Recommended Hotel and Restaurants</h2>
+          <h2 className="text-3xl font-bold mb-12 text-center">{t('recommendations')}</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {recommendations.map((item, index) => (
-              <div key={index} className="bg-white rounded-xl overflow-hidden shadow-lg group">
+              <div key={index} className="bg-white rounded-xl shadow-lg overflow-hidden">
                 <div className="relative h-48">
                   <Image
                     src={item.image}
                     alt={item.title}
                     fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-110"
+                    className="object-cover"
                   />
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
-                  <p className="text-gray-600 mb-4">{item.description}</p>
-                  <button className="text-sage-600 font-medium inline-flex items-center group">
-                    Learn More
-                    <ArrowRightIcon className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-                  </button>
+                  <h3 className="text-xl font-semibold mb-3">{item.title}</h3>
+                  <p className="text-gray-600 text-sm leading-relaxed">{item.description}</p>
                 </div>
               </div>
             ))}

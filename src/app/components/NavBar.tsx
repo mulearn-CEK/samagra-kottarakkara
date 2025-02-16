@@ -3,10 +3,14 @@
 import Link from "next/link";
 import { Bars3Icon, XMarkIcon, ChevronDownIcon } from '@heroicons/react/24/outline';
 import { useState, useEffect } from 'react';
+import { useLanguage } from '../context/LanguageContext';
+import { useTranslation } from '../hooks/useTranslation';
 
 export default function NavBar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const { language, setLanguage } = useLanguage();
+  const { t } = useTranslation();
 
   // Prevent body scroll when mobile menu is open
   useEffect(() => {
@@ -21,12 +25,16 @@ export default function NavBar() {
   }, [isMenuOpen]);
 
   const focusAreas = [
-    { name: 'Agriculture', href: '/focus/agriculture' },
-    { name: 'Livelihood', href: '/focus/livelihood' },
-    { name: 'Education', href: '/focus/education' },
-    { name: 'Waste Management', href: '/focus/waste-management' },
-    { name: 'Tourism', href: '/focus/tourism' },
+    { name: t('agriculture'), href: '/focus/agriculture' },
+    { name: t('livelihood'), href: '/focus/livelihood' },
+    { name: t('education'), href: '/focus/education' },
+    { name: t('wasteManagement'), href: '/focus/waste-management' },
+    { name: t('tourism'), href: '/focus/tourism' },
   ];
+
+  const toggleLanguage = () => {
+    setLanguage(language === 'en' ? 'ml' : 'en');
+  };
 
   return (
     <header className="fixed w-full bg-white/90 backdrop-blur-md shadow-sm z-50">
@@ -44,8 +52,8 @@ export default function NavBar() {
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex gap-8 items-center">
-          <Link href="/" className="nav-link hover:text-sage-600 transition-colors">Home</Link>
-          <Link href="/about" className="nav-link hover:text-sage-600 transition-colors">About</Link>
+          <Link href="/" className="nav-link hover:text-sage-600 transition-colors">{t('home')}</Link>
+          <Link href="/about" className="nav-link hover:text-sage-600 transition-colors">{t('about')}</Link>
           
           {/* Focus Areas Dropdown */}
           <div className="relative group">
@@ -54,7 +62,7 @@ export default function NavBar() {
               onMouseEnter={() => setIsDropdownOpen(true)}
               onMouseLeave={() => setIsDropdownOpen(false)}
             >
-              Focus Areas
+              {t('focusAreas')}
               <ChevronDownIcon className="w-4 h-4 transition-transform duration-200 group-hover:rotate-180" />
             </button>
             
@@ -78,22 +86,40 @@ export default function NavBar() {
             </div>
           </div>
 
-          <Link href="/events" className="nav-link hover:text-sage-600 transition-colors">Events</Link>
-          <Link href="/contact" className="nav-link hover:text-sage-600 transition-colors">Contact</Link>
+          <Link href="/events" className="nav-link hover:text-sage-600 transition-colors">{t('events')}</Link>
+          <Link href="/contact" className="nav-link hover:text-sage-600 transition-colors">{t('contact')}</Link>
+          
+          {/* Language Switch Button */}
+          <button
+            onClick={toggleLanguage}
+            className="px-4 py-2 rounded-md bg-sage-100 text-sage-600 hover:bg-sage-200 transition-colors"
+          >
+            {t('switchLanguage')}
+          </button>
         </div>
 
         {/* Mobile Menu Button */}
-        <button 
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="md:hidden relative z-50 p-2 rounded-lg hover:bg-gray-100 transition-colors"
-          aria-label="Toggle menu"
-        >
-          {isMenuOpen ? (
-            <XMarkIcon className="w-6 h-6" />
-          ) : (
-            <Bars3Icon className="w-6 h-6" />
-          )}
-        </button>
+        <div className="md:hidden flex items-center gap-4">
+          {/* Language Switch Button (Mobile) */}
+          <button
+            onClick={toggleLanguage}
+            className="px-3 py-1.5 rounded-md bg-sage-100 text-sage-600 hover:bg-sage-200 transition-colors text-sm"
+          >
+            {t('switchLanguage')}
+          </button>
+
+          <button 
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="relative z-50 p-2 rounded-lg hover:bg-gray-100 transition-colors"
+            aria-label="Toggle menu"
+          >
+            {isMenuOpen ? (
+              <XMarkIcon className="w-6 h-6" />
+            ) : (
+              <Bars3Icon className="w-6 h-6" />
+            )}
+          </button>
+        </div>
 
         {/* Mobile Navigation Overlay */}
         {isMenuOpen && (
@@ -114,19 +140,19 @@ export default function NavBar() {
               className="py-3 text-lg hover:text-sage-600 transition-colors" 
               onClick={() => setIsMenuOpen(false)}
             >
-              Home
+              {t('home')}
             </Link>
             <Link 
               href="/about" 
               className="py-3 text-lg hover:text-sage-600 transition-colors" 
               onClick={() => setIsMenuOpen(false)}
             >
-              About
+              {t('about')}
             </Link>
             
             {/* Mobile Focus Areas */}
             <div className="py-4 space-y-3">
-              <span className="text-sage-600 font-medium text-lg">Focus Areas</span>
+              <span className="text-sage-600 font-medium text-lg">{t('focusAreas')}</span>
               <div className="flex flex-col space-y-2 pl-4">
                 {focusAreas.map((area) => (
                   <Link
@@ -146,14 +172,14 @@ export default function NavBar() {
               className="py-3 text-lg hover:text-sage-600 transition-colors" 
               onClick={() => setIsMenuOpen(false)}
             >
-              Events
+              {t('events')}
             </Link>
             <Link 
               href="/contact" 
               className="py-3 text-lg hover:text-sage-600 transition-colors" 
               onClick={() => setIsMenuOpen(false)}
             >
-              Contact
+              {t('contact')}
             </Link>
           </div>
         </div>
