@@ -19,7 +19,7 @@ export default function Home() {
           <div className="max-w-3xl animate-[fadeIn_1s_ease-out]">
             <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold text-white mb-4 sm:mb-6 leading-tight">
               Samagra<br />
-              <span className="text-3xl sm:text-4xl md:text-6xl opacity-90">Kottarakkara</span>
+              <span className="text-4xl sm:text-5xl md:text-7xl font-bold text-white mb-4 sm:mb-6 leading-tight">Kottarakkara</span>
             </h1>
             <p className="text-base sm:text-lg md:text-xl text-white/90 mb-6 sm:mb-8 max-w-xl">
               Discover the rich heritage and vibrant future of our historic town
@@ -33,9 +33,9 @@ export default function Home() {
       </section>
 
       {/* About Section */}
-      <section className="section-padding bg-sage-50 flex items-center justify-center">
-        <div className="container mx-auto px-4 flex items-center justify-center">
-          <div className="max-w-4xl mx-auto bg-white p-6 sm:p-8 md:p-12 rounded-2xl shadow-xl transform -translate-y-16 sm:-translate-y-20">
+      <section className="section-padding bg-sage-50 py-20">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto bg-white p-6 sm:p-8 md:p-12 rounded-2xl shadow-xl">
             <h2 className="text-gradient text-3xl sm:text-4xl font-bold mb-4 sm:mb-6 text-center">About Kottarakkara</h2>
             <p className="text-gray-700 text-base sm:text-lg leading-relaxed text-center">
               Kottarakkara is a historic town in Kerala, known for its rich cultural heritage and natural beauty.
@@ -127,10 +127,15 @@ export default function Home() {
                   An initiative by Honorable Finance Minister of Kerala & MLA of Kottarakkara <br />Shri K N Balagopal
                 </span>
               </h3>
-              <button className="btn bg-white text-purple-900 hover:bg-purple-50 group">
+              <a 
+                href="https://forms.gle/YGrjF21jABSTKqMu8" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="btn bg-white text-purple-900 hover:bg-purple-50 group inline-flex items-center"
+              >
                 BOOK NOW
                 <ArrowRightIcon className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-              </button>
+              </a>
             </div>
           </div>
         </div>

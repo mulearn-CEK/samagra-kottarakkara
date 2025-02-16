@@ -29,9 +29,10 @@ export default function RootLayout({
                 <h3 className="text-lg md:text-xl font-bold mb-6 text-gradient-white">Focus Areas</h3>
                 <ul className="space-y-3">
                   <li><Link href="/education" className="text-gray-400 hover:text-white transition-colors">Education</Link></li>
-                  <li><Link href="/healthcare" className="text-gray-400 hover:text-white transition-colors">Healthcare</Link></li>
+                  <li><Link href="/livelihood" className="text-gray-400 hover:text-white transition-colors">Livelihood</Link></li>
                   <li><Link href="/agriculture" className="text-gray-400 hover:text-white transition-colors">Agriculture</Link></li>
                   <li><Link href="/tourism" className="text-gray-400 hover:text-white transition-colors">Tourism</Link></li>
+                  <li><Link href="/wastemanagement" className="text-gray-400 hover:text-white transition-colors">Waste Management</Link></li>
                 </ul>
               </div>
               <div className="space-y-4">

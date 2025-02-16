@@ -14,7 +14,7 @@ export default function Agriculture() {
   return (
     <main className="min-h-screen pt-20">
       {/* Hero Section */}
-      <section className="relative py-20 bg-white">
+      <section className="relative py-12 bg-white">
         <div className="container mx-auto px-4">
           <div className="flex flex-col lg:flex-row gap-12 items-center">
             <div className="flex-1">
