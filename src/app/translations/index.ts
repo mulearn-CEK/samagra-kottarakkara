@@ -105,7 +105,7 @@ export const translations: Translation = {
   // Footer
   explore: {
     en: 'Explore',
-    ml: 'കണ്ടെത്തുക'
+    ml: 'പര്യവേക്ഷണം'
   },
   news: {
     en: 'News',
@@ -119,14 +119,6 @@ export const translations: Translation = {
     en: 'Projects',
     ml: 'പദ്ധതികൾ'
   },
-  aboutUs: {
-    en: 'About us',
-    ml: 'ഞങ്ങളെക്കുറിച്ച്'
-  },
-  contactUs: {
-    en: 'Contact us',
-    ml: 'ഞങ്ങളുമായി ബന്ധപ്പെടുക'
-  },
   newsletter: {
     en: 'Newsletter',
     ml: 'വാർത്താക്കുറിപ്പ്'
@@ -135,17 +127,25 @@ export const translations: Translation = {
     en: 'Social Media',
     ml: 'സോഷ്യൽ മീഡിയ'
   },
-  comingSoon: {
-    en: 'Coming Soon',
-    ml: 'ഉടൻ വരുന്നു'
+  madeWith: {
+    en: 'Made with ❤️ μlearn CEK',
+    ml: 'നിർമ്മിച്ചത് ❤️ μlearn CEK'
   },
   copyright: {
     en: 'All rights reserved.',
     ml: 'എല്ലാ അവകാശങ്ങളും നിക്ഷിപ്തം.'
   },
-  madeWith: {
-    en: 'With ❤️ from μlearn CEK',
-    ml: 'μlearn CEK യിൽ നിന്ന് ❤️ യോടെ'
+  comingSoon: {
+    en: 'Coming Soon',
+    ml: 'ഉടൻ വരുന്നു'
+  },
+  aboutUs: {
+    en: 'About Us',
+    ml: 'ഞങ്ങളെക്കുറിച്ച്'
+  },
+  contactUs: {
+    en: 'Contact Us',
+    ml: 'ഞങ്ങളെ സമീപിക്കുക'
   },
 
   // Language Switch
