@@ -4,6 +4,8 @@ import "./globals.css";
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
 import { LanguageProvider } from "./context/LanguageContext";
+import { AuthProvider } from "./context/AuthContext";
+import { Analytics } from "@vercel/analytics/react";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,9 +23,12 @@ export default function RootLayout({
     <html lang="ml">
       <body className={inter.className}>
         <LanguageProvider>
-          <NavBar />
-          {children}
-          <Footer />
+          <AuthProvider>
+            <NavBar />
+            {children}
+            <Footer />
+            <Analytics />
+          </AuthProvider>
         </LanguageProvider>
       </body>
     </html>

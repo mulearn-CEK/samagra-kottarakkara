@@ -89,6 +89,14 @@ export default function NavBar() {
           <Link href="/events" className="nav-link hover:text-sage-600 transition-colors">{t('events')}</Link>
           <Link href="/contact" className="nav-link hover:text-sage-600 transition-colors">{t('contact')}</Link>
           
+          {/* Desire 2025 Button */}
+          <Link 
+            href="/desire2025" 
+            className="px-4 py-2 rounded-md bg-sage-600 text-white hover:bg-sage-700 transition-colors"
+          >
+            Desire 2025
+          </Link>
+          
           {/* Language Switch Button */}
           <button
             onClick={toggleLanguage}
@@ -100,6 +108,14 @@ export default function NavBar() {
 
         {/* Mobile Menu Button */}
         <div className="md:hidden flex items-center gap-4">
+          {/* Desire 2025 Button (Mobile) */}
+          <Link 
+            href="/desire2025" 
+            className="px-3 py-1.5 rounded-md bg-sage-600 text-white hover:bg-sage-700 transition-colors text-sm"
+          >
+            Desire 2025
+          </Link>
+          
           {/* Language Switch Button (Mobile) */}
           <button
             onClick={toggleLanguage}
